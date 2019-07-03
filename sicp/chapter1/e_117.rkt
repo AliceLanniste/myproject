@@ -1,4 +1,5 @@
-#lang sicp
+#lang racket
+
 
    (define (double x) (+ x x)) 
    (define (halve x) (/ x 2))
