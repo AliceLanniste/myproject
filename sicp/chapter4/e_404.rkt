@@ -52,7 +52,7 @@
 (define (expand-and-clause exps)
   (if (empty-clause exps)
       true
-      (make-if (first-clause exps) (expand-and-clause(rest-clause exps)) false))))
+      (make-if (first-clause exps) (expand-and-clause(rest-clause exps)) false)))
 
 (define (or->if exps)
   (expand-or-claus exps))

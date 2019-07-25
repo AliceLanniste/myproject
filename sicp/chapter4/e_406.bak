@@ -20,7 +20,3 @@
     'false
     (cons (make-lambda (let-var (let-pair exp)) (let-body exp))
     (let-exp (let-pair exp)))))
-
-
-(define (make-let bindings body)
-  (list 'let bindings body))
