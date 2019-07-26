@@ -1,0 +1,21 @@
+```
+(lambda ⟨vars⟩
+  (let ((u '*unassigned*)
+        (v '*unassigned*))
+    (set! u ⟨e1⟩)
+    (set! v ⟨e2⟩)
+    ⟨e3⟩))
+```
+为什么转这种形式是可以运行成功，
+因为计算表达式前，先把变量定义为`unassigned`绕过对表达式计算,再赋值就行。
+```
+(lambda ⟨vars⟩
+  (let ((u '*unassigned*)
+        (v '*unassigned*))
+    (let ((a ⟨e1⟩)
+          (b ⟨e2⟩))
+      (set! u a)
+      (set! v b))
+    ⟨e3⟩))
+```
+使用这种形式会导致 `lambda b   (stream-map f y)`要计算y。
