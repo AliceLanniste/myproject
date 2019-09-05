@@ -1,0 +1,10 @@
+#lang racket
+ (define (unique-tuples n k) 
+     (define (iter m k) 
+         (if (= k 0) 
+             (list nil) 
+             (flatmap (lambda (j) 
+                         (map (lambda (tuple) (cons j tuple)) 
+                             (iter (+ j 1) (- k 1)))) 
+                     (enumerate-interval m n)))) 
+     (iter 1 k)) 
